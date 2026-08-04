@@ -1,1 +1,1 @@
-window.PLANT_STORIES_CONFIG={supabaseUrl:"YOUR_SUPABASE_PROJECT_URL",supabaseAnonKey:"YOUR_SUPABASE_ANON_KEY"};
+window.PLANT_STORIES_CONFIG={supabaseUrl:"https://ltlvqsnnnjcvpjinlsxa.supabase.co",supabaseAnonKey:"sb_publishable_tVN05uduKVcr9goxokB43w_-u3wMR5b"};
