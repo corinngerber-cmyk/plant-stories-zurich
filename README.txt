@@ -1,15 +1,19 @@
-PLANT STORIES ZÜRICH — VERSION 2
+Plant Stories Zürich — shared class version
 
-Preview locally:
-1. Unzip the folder.
-2. Double-click index.html.
+Includes:
+- “Noticed on …” date on every entry
+- public read-only map
+- local drafts without student accounts
+- picture upload and student submission
+- private teacher moderation
+- approve, return, edit and delete
+- corrected Lachenzelg ivy model text
 
-Create a shareable link with Netlify Drop:
-1. Open https://app.netlify.com/drop
-2. Drag the entire unzipped plant-stories-pwa-v2 folder onto the page.
-3. Netlify creates a shareable URL immediately.
-
-Important:
-- This prototype stores contributions only in the browser on the device used.
-- It does not yet share student submissions between devices.
-- Shared submissions and teacher approval require a database and image storage, for example Supabase.
+To activate shared submissions:
+1. Create a free Supabase project.
+2. In SQL Editor, replace REPLACE_WITH_YOUR_TEACHER_EMAIL in setup.sql and run it.
+3. In Storage, create a PUBLIC bucket named plant-images.
+4. In Authentication > Users, create your teacher login.
+5. In Project Settings > API, copy the Project URL and anon key into config.js.
+6. Upload all updated files to the root of your GitHub repository.
+7. Vercel will redeploy automatically.
