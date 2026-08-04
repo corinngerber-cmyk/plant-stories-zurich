@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#f4f0e6">
+  <title>Plant Stories Zürich</title>
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <section id="homeView" class="home-view view active">
+    <div class="home-overlay">
+      <p class="eyebrow">English class project</p>
+      <h1>Plant Stories Zürich</h1>
+      <p class="home-kicker">Every plant has a story.</p>
+      <p class="home-text">Meet a local plant. Learn its story. Notice what it teaches us.</p>
+      <div class="home-actions">
+        <button class="primary-button nav-button" data-view="mapView">Explore the map</button>
+        <button class="secondary-button nav-button" data-view="submitView">Share a plant</button>
+      </div>
+    </div>
+  </section>
+
+  <header class="site-header hidden-on-home hidden">
+    <button class="brand-button nav-button" data-view="homeView">Plant Stories Zürich</button>
+    <nav>
+      <button class="text-button nav-button" data-view="mapView">Explore</button>
+      <button class="text-button nav-button" data-view="submitView">Share a plant</button>
+    </nav>
+  </header>
+
+  <main class="hidden-on-home hidden">
+    <section id="mapView" class="view">
+      <div class="page-intro">
+        <p class="eyebrow">Explore</p>
+        <h2>Plant stories around Zürich</h2>
+        <p>Each marker opens a student contribution with three parts: picture, story, meaning.</p>
+      </div>
+      <div class="map-layout">
+        <div class="map-wrap"><div id="map"></div></div>
+        <aside id="storyPanel" class="story-panel">
+          <div class="empty-state">
+            <div class="botanical-mark">❧</div>
+            <h3>Choose a marker</h3>
+            <p>Open a contribution and discover a plant through someone else’s eyes.</p>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section id="submitView" class="view">
+      <div class="page-intro">
+        <p class="eyebrow">Share</p>
+        <h2>Share a plant</h2>
+        <p>Choose one plant and tell its story in your own way.</p>
+      </div>
+      <div class="form-layout">
+        <form id="plantForm" class="form-card">
+          <label>Plant name in English<input name="englishName" required placeholder="e.g. dandelion"></label>
+          <label>Plant name in German<input name="germanName" placeholder="e.g. Löwenzahn"></label>
+          <label>Scientific name <span class="optional">(optional)</span><input name="scientificName" placeholder="e.g. Taraxacum officinale"></label>
+          <label>Picture<input id="imageInput" name="image" type="file" accept="image/*"></label>
+          <div id="imagePreview" class="hidden"></div>
+          <fieldset>
+            <legend>Where did you meet this plant?</legend>
+            <div class="location-actions">
+              <button type="button" id="useLocation" class="outline-button">Use my current location</button>
+              <button type="button" id="chooseOnMap" class="outline-button">Choose on map</button>
+            </div>
+            <p id="locationStatus" class="helper-text">No location chosen yet.</p>
+            <div id="pickerMap" class="picker-map hidden"></div>
+            <input type="hidden" name="lat"><input type="hidden" name="lng">
+          </fieldset>
+          <label>Where exactly did you meet it?<input name="place" required placeholder="e.g. beside the basketball court"></label>
+          <label>Tell the plant’s story<textarea name="story" rows="8" required placeholder="How did you notice it? Is there a memory or person connected to it? How does it grow, survive, spread or interact with other living beings?"></textarea></label>
+          <label>What does this plant teach us?<textarea name="meaning" rows="5" required placeholder="Why is this plant meaningful to you? What might people learn from it?"></textarea></label>
+          <label>Your display name<input name="author" required placeholder="First name or initials"></label>
+          <button type="submit" class="primary-button wide">Preview contribution</button>
+          <p class="prototype-note">Prototype: contributions are saved only in this browser.</p>
+        </form>
+        <aside class="ideas-card">
+          <h3>Need an idea?</h3>
+          <ul>
+            <li>Find a tree older than you.</li>
+            <li>Find a plant most people call a weed.</li>
+            <li>Find a plant that depends on insects, birds, fungi or another plant.</li>
+            <li>Find a plant growing somewhere unexpected.</li>
+            <li>Find a plant that reminds you of a place or person.</li>
+            <li>Choose a plant you usually ignore and observe it for five minutes.</li>
+          </ul>
+        </aside>
+      </div>
+    </section>
+  </main>
+
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
